@@ -6,7 +6,8 @@ def report2(diction):
     listOfItems = list(diction.items())
     newDf = pd.DataFrame(listOfItems,columns=['ActivityCode', 'MinutesSpent'])
     newDf = newDf.sort_values(by="ActivityCode")
-    print(newDf.to_string(index=False))
+    #two options for printing 
+    #print(newDf.to_string(index=False))
     print(tabulate(newDf, headers="keys", tablefmt="grid", showindex=False))
 
 
@@ -49,6 +50,7 @@ def processDf(df):
     return diction
 
 if __name__ == '__main__':
+    print()
     validDf = returnDf()
     dict = processDf(validDf)
     report2(dict)
