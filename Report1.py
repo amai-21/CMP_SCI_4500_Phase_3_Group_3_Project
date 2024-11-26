@@ -49,7 +49,6 @@ if __name__ == '__main__':
         minutes += minutes
         i += 1
 
-
     # Creates report1.csv
     report1 = {
         "Name": [get_name(csv_file)],
@@ -58,11 +57,9 @@ if __name__ == '__main__':
     report1_df = pd.DataFrame(report1)
 
     # Creates report1.csv
-    '''
     csv_file_path = "report1.csv"
     report1_df.to_csv(csv_file_path, index=False)
     print("CSV file " +  csv_file_path + " has been created successfully.")
-    '''
 
     # Display report 1 table
     report1_header = ["Name", "Total minutes logged"]
