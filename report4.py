@@ -63,17 +63,17 @@ if __name__ == '__main__':
         while i < get_row_length(file_name):
             if str(get_weekday(file_name, i)) == "Monday":
                 monday_min = get_time_difference_in_minutes(file_name, i)
-            if str(get_weekday(file_name, i)) == "Tuesday":
+            elif str(get_weekday(file_name, i)) == "Tuesday":
                 tuesday_min = get_time_difference_in_minutes(file_name, i)
-            if str(get_weekday(file_name, i)) == "Wednesday":
+            elif str(get_weekday(file_name, i)) == "Wednesday":
                 wednesday_min = get_time_difference_in_minutes(file_name, i)
-            if str(get_weekday(file_name, i)) == "Thursday":
+            elif str(get_weekday(file_name, i)) == "Thursday":
                 thursday_min = get_time_difference_in_minutes(file_name, i)
-            if str(get_weekday(file_name, i)) == "Friday":
+            elif str(get_weekday(file_name, i)) == "Friday":
                 friday_min = get_time_difference_in_minutes(file_name, i)
-            if str(get_weekday(file_name, i)) == "Saturday":
+            elif str(get_weekday(file_name, i)) == "Saturday":
                 saturday_min += get_time_difference_in_minutes(file_name, i)
-            if str(get_weekday(file_name, i)) == "Sunday":
+            elif str(get_weekday(file_name, i)) == "Sunday":
                 sunday_min += get_time_difference_in_minutes(file_name, i)
             i += 1
 
