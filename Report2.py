@@ -8,7 +8,10 @@ def report2(diction):
     newDf = newDf.sort_values(by="ActivityCode")
     #two options for printing 
     #print(newDf.to_string(index=False))
-    print(tabulate(newDf, headers="keys", tablefmt="grid", showindex=False))
+    print(f'Report 2 Generated and Saved to File: {tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)}')
+    output = tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)
+    with open("Report2.txt", "w") as file:
+        file.write(output)
 
 
 def returnDf():

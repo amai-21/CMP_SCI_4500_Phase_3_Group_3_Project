@@ -18,14 +18,18 @@ def report3(diction):
     df = df.pivot(index='Name', columns='Activity Code', values='Amount')
     df = df.fillna(0)
     print(tabulate(df.values, headers='keys', tablefmt='grid', showindex=True))
-    color = plt.imshow(df, cmap='autumn')
-    plt.colorbar(color)
+    #https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html
+    axImg = plt.imshow(df, cmap='autumn')
+    plt.colorbar(axImg)
     plt.xticks(ticks=range(len(df.columns)), labels=df.columns)
     plt.yticks(ticks=range(len(df.index)), labels=df.index)
     plt.title("Report 3 - Activity by Name heatmap")
     plt.xlabel("Activity Code")
     plt.ylabel("Name")
+    plt.savefig("graphB_Report3")
+    input("Press enter and the graph will display in a seperate window. To continue window must be exited.")
     plt.show()
+    
         
     
 

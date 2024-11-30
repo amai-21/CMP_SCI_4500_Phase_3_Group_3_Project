@@ -14,7 +14,10 @@ def report3(diction):
     df = pd.DataFrame(flat, columns=['Name', 'Activity Code', 'Amount'])
     df = df.pivot(index='Name', columns='Activity Code', values='Amount')
     df = df.fillna(0)
-    print(tabulate(df, headers='keys', tablefmt='grid', showindex=True))
+    output = tabulate(df, headers='keys', tablefmt='grid', showindex=True)
+    print(f'Report 3 Generated and Saved: {output}')
+    with open("Report3.txt", "w") as file:
+        file.write(output)
 
 
 def returnDf(file):
