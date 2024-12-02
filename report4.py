@@ -2,6 +2,7 @@ import pandas as pd
 from datetime import datetime
 from tabulate import tabulate
 import glob
+import os
 
 # Calculates the time difference in minutes of the timelog csv
 def get_time_difference_in_minutes(file_name, counter):
@@ -23,7 +24,6 @@ def get_time_difference_in_minutes(file_name, counter):
     else:
         difference = dt2 - dt1
         time_log_minutes = int(difference.total_seconds() / 60)
-
     return time_log_minutes
 
 # Gets weekday from date
@@ -35,7 +35,7 @@ def get_weekday(file_name, counter):
 
     date_object = datetime.strptime(date, "%m/%d/%Y")
     day_of_week = date_object.strftime("%A")
-    return (day_of_week)
+    return day_of_week
 
 # Gets row length of csv file
 def get_row_length(file_name):
@@ -63,36 +63,36 @@ if __name__ == '__main__':
         while i < get_row_length(file_name):
             if str(get_weekday(file_name, i)) == "Monday":
                 monday_min = get_time_difference_in_minutes(file_name, i)
-            elif str(get_weekday(file_name, i)) == "Tuesday":
+            if str(get_weekday(file_name, i)) == "Tuesday":
                 tuesday_min = get_time_difference_in_minutes(file_name, i)
-            elif str(get_weekday(file_name, i)) == "Wednesday":
+            if str(get_weekday(file_name, i)) == "Wednesday":
                 wednesday_min = get_time_difference_in_minutes(file_name, i)
-            elif str(get_weekday(file_name, i)) == "Thursday":
+            if str(get_weekday(file_name, i)) == "Thursday":
                 thursday_min = get_time_difference_in_minutes(file_name, i)
-            elif str(get_weekday(file_name, i)) == "Friday":
+            if str(get_weekday(file_name, i)) == "Friday":
                 friday_min = get_time_difference_in_minutes(file_name, i)
-            elif str(get_weekday(file_name, i)) == "Saturday":
+            if str(get_weekday(file_name, i)) == "Saturday":
                 saturday_min += get_time_difference_in_minutes(file_name, i)
-            elif str(get_weekday(file_name, i)) == "Sunday":
+            if str(get_weekday(file_name, i)) == "Sunday":
                 sunday_min += get_time_difference_in_minutes(file_name, i)
             i += 1
 
-# Report 4 csv headers and stuff
-report4 = {
-    "Weekday": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    "Total Minutes": [str(monday_min), str(tuesday_min), str(wednesday_min), str(thursday_min),
-     str(friday_min), str(saturday_min), str(sunday_min)]
-}
+    # Report 4 csv headers and stuff
+    report4 = {
+        "Weekday": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "Total Minutes": [str(monday_min), str(tuesday_min), str(wednesday_min), str(thursday_min),
+         str(friday_min), str(saturday_min), str(sunday_min)]
+    }
 
-# Cannot create a csv because the program will find the csv and error
-# The following code can be removed if creation of csv is not required
-'''
-# Creates report4.csv
-report4_df = pd.DataFrame(report4)
-csv_file_path = "report4.csv"
-report4_df.to_csv(csv_file_path, index=False)
-'''
+    # Creates a directory to save the csv
+    make_dir = "report4"
+    os.makedirs(make_dir, exist_ok=True)
 
-# Displays report4 as a table in the console
-report4_header = ["Weekday", "Total Minutes"]
-print(tabulate(report4, headers=report4_header, tablefmt="grid"))
+    # Creates report4.csv
+    report4_df = pd.DataFrame(report4)
+    csv_file_path = "report4/report4.csv"
+    report4_df.to_csv(csv_file_path, index=False)
+
+    # Displays report4 as a table in the console
+    report4_header = ["Weekday", "Total Minutes"]
+    print(tabulate(report4, headers=report4_header, tablefmt="grid"))
