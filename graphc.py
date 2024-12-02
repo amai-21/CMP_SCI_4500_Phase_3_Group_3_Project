@@ -62,13 +62,19 @@ def plot_graph_c(date_totals):
     input("Graph C generated and saved as GraphC_TotalMinutesPerDay.png. Press Enter to view the graph.")
     plt.show()
 
-if __name__ == "__main__":
-    # Step 1: Process files and aggregate data by date:
+
+def generate_graph_c_main():
+    """Main function to generate Graph C."""
+
+    # Step 1: Aggregate data by dfate:
     date_totals = process_files_and_aggregate_by_date()
 
-    #Step 2: Plot the graph
+    # Step 2: Plot the graph if data is available
     if date_totals:
         plot_graph_c(date_totals)
     else:
         print("No valid data to generate Graph C.")
+
+if __name__ == "__main__":
+   generate_graph_c_main()
         
