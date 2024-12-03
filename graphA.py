@@ -89,15 +89,15 @@ def graph_df(df):
     temp_df = df['Total Time Logged (Minutes)']
     plt.style.use("ggplot")
     plt.rcParams["figure.figsize"] = (12, 10)
-    df1.plot.barh(x="Name", y="Total Time Logged (Minutes)", title="Graph A: Total Minutes Worked By Member", color="red")
+    df.plot.barh(x="Name", y="Total Time Logged (Minutes)", title="Graph A: Total Minutes Worked By Member", color="red")
     plt.xlim(0, (temp_df.max() + 500))
     plt.gca().set_xticks([0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000])
     plt.show()
 
-
-csv_list = collect_csv_in_wd()
-minutes_list = get_minutes_worked(csv_list)
-names_list = get_names(csv_list)
-df1 = create_dataframe(names_list, minutes_list)
-graph_df(df1)
+def graphAMain():
+    csv_list = collect_csv_in_wd()
+    minutes_list = get_minutes_worked(csv_list)
+    names_list = get_names(csv_list)
+    df1 = create_dataframe(names_list, minutes_list)
+    graph_df(df1)
 

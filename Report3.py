@@ -7,7 +7,7 @@ import re
 def report3(diction):
     flat = []
 
-    for name, activities in masterDictionary.items():
+    for name, activities in diction.items():
         for activity_code, amount in activities.items():
             flat.append([name, activity_code, amount])
     #print(flat)
@@ -73,7 +73,7 @@ def mapNamesToDictionaries(diction, names):
         masterDiction[name] = dictionary 
     return masterDiction
 
-if __name__ == '__main__':
+def report3Main():
     #need to modify this to take in an array of csv files
     # but for now...
     csvFiles = []
@@ -90,9 +90,6 @@ if __name__ == '__main__':
             dfs.append(validDf)
             dict = processDf(validDf)
             dictionaries.append(dict)
-    
-    #print(dictionaries)
-    #print(names)
     masterDictionary = mapNamesToDictionaries(dictionaries, names)
     #print(masterDictionary)
     report3(masterDictionary)

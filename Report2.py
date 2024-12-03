@@ -8,7 +8,7 @@ def report2(diction):
     newDf = newDf.sort_values(by="ActivityCode")
     #two options for printing 
     #print(newDf.to_string(index=False))
-    print(f'Report 2 Generated and Saved to File: {tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)}')
+    print(f'Report 2 Generated and Saved to File: {tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)}\n')
     output = tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)
     with open("Report2.txt", "w") as file:
         file.write(output)
@@ -52,7 +52,7 @@ def processDf(df):
             diction[ac] += minutes
     return diction
 
-if __name__ == '__main__':
+def report2Main():
     print()
     validDf = returnDf()
     dict = processDf(validDf)

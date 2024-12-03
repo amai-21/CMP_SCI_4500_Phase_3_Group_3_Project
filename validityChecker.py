@@ -39,7 +39,7 @@ from datetime import datetime
 class programA:
     #insantiation of class variables
     def __init__(self):
-        self.introMessage = "---------Welcome to program A of phase II. This program is for validating patterns in file names and checks the validity of file contents. ---------\n"
+        self.introMessage = "---------Welcome to program Validity Checker of phase III. This program is for validating patterns in file names and checks the validity of file contents. ---------\n"
         #data strucutre "L per assignment document"
         self.listOfDirectoryFiles = []
         self.fileName = "ValidityChecks.txt"
