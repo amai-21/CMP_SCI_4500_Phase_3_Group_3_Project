@@ -76,7 +76,7 @@ if __name__ == '__main__':
     '''
 
     # Creates report1.txt
-    csv_file_path = "report1.txt"
+    csv_file_path = "PhaseThreeReport1.txt"
     df.to_csv(csv_file_path, index=False)
     print("CSV file " + csv_file_path + " has been created successfully.")
 
