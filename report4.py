@@ -4,6 +4,7 @@ import pandas as pd
 from datetime import datetime
 from tabulate import tabulate
 import glob
+# Only needed if creating a new directory
 import os
 
 # Calculates the time difference in minutes of the timelog csv
@@ -86,6 +87,8 @@ if __name__ == '__main__':
          str(friday_min), str(saturday_min), str(sunday_min)]
     }
 
+    # This code might be obsolete
+    '''
     # Creates a directory to save the csv
     make_dir = "report4"
     os.makedirs(make_dir, exist_ok=True)
@@ -93,6 +96,12 @@ if __name__ == '__main__':
     # Creates report4.csv
     report4_df = pd.DataFrame(report4)
     csv_file_path = "report4/report4.csv"
+    report4_df.to_csv(csv_file_path, index=False)
+    '''
+
+    # Creates report4.txt
+    report4_df = pd.DataFrame(report4)
+    csv_file_path = "PhaseThreeReport4.txt"
     report4_df.to_csv(csv_file_path, index=False)
 
     # Displays report4 as a table in the console
