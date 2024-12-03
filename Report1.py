@@ -2,6 +2,7 @@ import pandas as pd
 from datetime import datetime
 from tabulate import tabulate
 import glob
+# Only needed if creating a new directory
 import os
 
 # Gets the last name and first name of the timelog csv
@@ -62,14 +63,22 @@ if __name__ == '__main__':
     for csv_file in file:
         df.loc[len(df)] = [get_name(csv_file), get_minutes(csv_file)]
 
+    # This code might be obsolete
+    '''
     # Creates a directory to save the csv
     make_dir = "report1"
     os.makedirs(make_dir, exist_ok=True)
 
     # Creates report1.csv
-    csv_file_path = "report1/report1.csv"
+    csv_file_path = "report1/report1.txt"
     df.to_csv(csv_file_path, index=False)
     print("CSV file " +  csv_file_path + " has been created successfully.")
+    '''
+
+    # Creates report1.txt
+    csv_file_path = "report1.txt"
+    df.to_csv(csv_file_path, index=False)
+    print("CSV file " + csv_file_path + " has been created successfully.")
 
     # Display report 1 table
     report1_header = ["Name", "Total minutes logged"]
