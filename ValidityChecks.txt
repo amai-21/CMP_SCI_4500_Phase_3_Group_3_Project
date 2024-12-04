@@ -1,2 +1,1 @@
-FILE KeenoiRowenLog.csv: check for date failed on line 3 . 
-FILE KeenoyRohanLog.csv: check for date failed on line 3 . 
+File HarterAdrianLog.csv: check for 4th column, activity code, failed on line 18 . 

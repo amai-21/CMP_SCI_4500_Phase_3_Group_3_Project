@@ -16,14 +16,14 @@ others are called by main function (invoked by this driver)'''
 if __name__ == "__main__":
     valid = validityChecker.programA()
     isValid = valid.didCheckFail() 
-    #print(f'Is Valid: {isValid}')
+    print(f'Is Valid: {isValid}')
     #valid will return if the program is valid per program A of phase II.
     if (isValid):
         input(f"Phase III:: Validity check logs are found in the directory. Files from file scan for validity are found in ValidityChecks.txt \n Press enter to Generate Reports.")
-        #report1
+        #report1.mainReport1()
         Report2.report2Main()
         Report3.report3Main()
-        #report4
+        report4.genReport4()
         #report5.generate_report_5_main()
         graphA.graphAMain()
         GraphB.graphBMain()

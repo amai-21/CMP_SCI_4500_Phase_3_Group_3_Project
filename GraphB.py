@@ -13,7 +13,7 @@ Date: 12/02/2024
 
 DATA STRUCTURES: A pandas dataframe is commonly used in scientific applications, it can be thought of as a N-d array,can have headers, and is structured as the csv is structured. 
     For this project using a dataframe is a no brainer. R has a similar structure. A dictionary is used to append to rows in a dataframe. This generated per row-entry.  An array called listOfDirectoryFiles is initalized as a class variable, this is a simple array that holds on to
-    files to traverse. This is the structure called "L" in the specification.
+    files to traverse. 
     
 General Flow: Processes data and then graphs it using a very common library called matplotlib. 
 
