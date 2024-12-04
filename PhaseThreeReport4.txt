@@ -1,0 +1,23 @@
+Report 4 Generated.
+CS 4500
+Report contains information for {'Harter': 'Adrian ', 'Keenoy': 'Rohan '}
+Report contains Minutes spent per day of the week in cs4500.
+Group B
+All members: Rohan Keenoy, Adrian Harter, Swati Shah, Josh brown, Andy Mai, Josiah Lyn
++-----------+-----------------+
+| Weekday   |   Total Minutes |
++===========+=================+
+| Monday    |             676 |
++-----------+-----------------+
+| Tuesday   |            1097 |
++-----------+-----------------+
+| Wednesday |             484 |
++-----------+-----------------+
+| Thursday  |             557 |
++-----------+-----------------+
+| Friday    |            1068 |
++-----------+-----------------+
+| Saturday  |              56 |
++-----------+-----------------+
+| Sunday    |             318 |
++-----------+-----------------+

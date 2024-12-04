@@ -1,3 +1,9 @@
+Report 1 Generated.
+CS 4500
+Report contains information for {'Harter': 'Adrian ', 'Keenoy': 'Rohan '}
+Report contains Minutes spent per person in cs4500.
+Group B
+All members: Rohan Keenoy, Adrian Harter, Swati Shah, Josh brown, Andy Mai, Josiah Lyn
 -------------------------
 Adrian Harter | 1419
 -------------------------

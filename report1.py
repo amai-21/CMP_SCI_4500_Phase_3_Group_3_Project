@@ -1,3 +1,34 @@
+"""
+Language: Python 3
+
+IDE: VS Code
+
+HOW TO RUN: Navigate to where the python project and execute as python {projectname}.py, because python is an interpreted language, an external library is used to "compile" it for an executable.
+    So you can either run the script or click on the executable. It was produced with a library called pyinstaller and ran with this command:
+     python c:.users.rohan.appdata.local.packages.pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0.localcache.local-packages.python312.site-packages.pyinstaller. --onefile {projectA}.py
+    Where the periods are forward slashes. (unicode parsing problem if leaving path in multi line comment)
+Authors: Josh Brown, Adrian Harter
+
+Date: 10/24/2024
+
+DATA STRUCTURES: A pandas dataframe is commonly used in scientific applications, it can be thought of as a N-d array,can have headers, and is structured as the csv is structured. 
+    For this project using a dataframe is a no brainer. R has a similar structure. A dictionary is used to append to rows in a dataframe. This generated per row-entry.  An array called listOfDirectoryFiles is initalized as a class variable, this is a simple array that holds on to
+    files to traverse. This is the structure called "L" in the specification.
+    
+General Flow: basically just opperates straight down the checks with a flag variable called "checkFailed" in the function OpenFilesAndCheck, if a check is failed , it calls a function to write to file that it failed, 
+this does not happen on the exception of a warning though - it will just print a warning and set the flag back to 0, which is valid. It then continues. 
+
+EXTERNAL files: Any file that is valid is used in the directory, generated a ValidityChecks.txt file.
+
+External preperation: Because python is an interpreted language a software pyinstaller will be used to generate an executable. 
+    
+References:
+    0.)Regex testing on : https://regex101.com/
+    1.) Date checks: https://www.geeksforgeeks.org/python-validate-string-date-format/, 
+    format reference https://pynative.com/python-datetime-format-strftime/
+    2.) General Pandas referencing on documentation site: https://pandas.pydata.org/docs/getting_started/index.html
+    
+"""
 import glob
 import numpy as np
 import pandas as pd
@@ -87,23 +118,37 @@ def get_names(a_list):
 
 
 # generates report from collected dataframe info
-def df_to_txt(df):
+def df_to_txt(df,firstAndLastDict):
     file = open("PhaseThreeReport1.txt", 'w')
     #file.write("sample header\n")
+    file.write("Report 1 Generated.\n")
+    file.write("CS 4500\n")
+    file.write(f"Report contains information for {firstAndLastDict}\n")
+    file.write("Report contains Minutes spent per person in cs4500.\n")
+    file.write("Group B\n")
+    file.write("All members: Rohan Keenoy, Adrian Harter, Swati Shah, Josh brown, Andy Mai, Josiah Lyn\n")
+    print("Report 1 Generated.")
+    print("CS 4500")
+    print(f"Report contains information for {firstAndLastDict}")
+    print("Report contains Minutes spent per person in cs4500.")
+    print("Group B")
+    print("All members: Rohan Keenoy, Adrian Harter, Swati Shah, Josh Brown, Andy Mai, Josiah Lyn")
+
     for index in df.index:
         file.write("-------------------------\n")
         a = df.loc[index, "Name"]
         b = df.loc[index, 'Total Time Logged (Minutes)']
         file.write(str(a) + " | " + str(b) + '\n')
+        print(str(a) + " | " + str(b))
 
 
 # primary method of this program
-def df_to_txt_main():
+def df_to_txt_main(firstAndLastDict):
     csv_list = collect_csv_in_wd()
     minutes_list = get_minutes_worked(csv_list)
     names_list = get_names(csv_list)
     df1 = create_dataframe(names_list, minutes_list)
-    df_to_txt(df1)
+    df_to_txt(df1,firstAndLastDict)
 
 
 if __name__ == "__main__":

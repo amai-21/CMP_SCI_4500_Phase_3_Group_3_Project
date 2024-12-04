@@ -41,14 +41,29 @@ import os
 import re
 
 #generates the report
-def report2(diction):
+def report2(diction,firstAndLastDict):
     listOfItems = list(diction.items())
     newDf = pd.DataFrame(listOfItems, columns=['ActivityCode', 'MinutesSpent'])
     newDf = newDf.sort_values(by="ActivityCode")
-    print(f'Report 2 Generated and Saved to File:\n{tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)}\n')
+    #print(f'Report 2 Generated and Saved to File:\n{tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)}\n')
     output = tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)
     with open("PhaseThreeReport2.txt", "w") as file:
+        file.write("Report 2 Generated.\n")
+        file.write("CS 4500\n")
+        file.write(f"Report contains information for {firstAndLastDict}\n")
+        file.write("Report contains Minutes spent per activity in cs4500.\n")
+        file.write("Group B\n")
+        file.write("All members: Rohan Keenoy, Adrian Harter, Swati Shah, Josh brown, Andy Mai, Josiah Lyn\n")
+        
         file.write(output)
+    print("Report 2 Generated.")
+    print("CS 4500")
+    print(f"Report contains information for {firstAndLastDict}")
+    print("Report contains Minutes spent per activity in cs4500.")
+    print("Group B")
+    print("All members: Rohan Keenoy, Adrian Harter, Swati Shah, Josh Brown, Andy Mai, Josiah Lyn")
+
+    print(output)
 
 #reads a CSV as a dataframe
 def returnDf(filepath):
@@ -81,7 +96,7 @@ def processDf(df):
 
 
 #main driver
-def report2Main():
+def report2Main(firstAndLastDict):
     csvFiles = []
     dfs = []
     dictionaries = []
@@ -104,7 +119,7 @@ def report2Main():
                 else:
                     combined_dict[key] += value
 
-    report2(combined_dict)
+    report2(combined_dict,firstAndLastDict)
 
 
 

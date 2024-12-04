@@ -1,4 +1,7 @@
-+---------------+-----+-----+-----+-----+-----+-----+-----+------+-----+-----+-----+-----+
+Report 3 Generated.
+CS 4500
+{'Harter': 'Adrian ', 'Keenoy': 'Rohan '}
+Report contains Minutes spent per activity code per person in cs4500.Group BAll members: Rohan Keenoy, Adrian Harter, Swati Shah, Josh brown, Andy Mai, Josiah Lyn+---------------+-----+-----+-----+-----+-----+-----+-----+------+-----+-----+-----+-----+
 | Name          |   0 |   1 |   2 |   3 |   4 |   5 |   6 |    7 |   8 |   B |   C |   D |
 +===============+=====+=====+=====+=====+=====+=====+=====+======+=====+=====+=====+=====+
 | Harter Adrian | 151 |  84 | 177 | 118 |  58 |  23 |   0 |  534 |   0 |  61 | 163 |   1 |

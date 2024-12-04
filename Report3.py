@@ -37,7 +37,7 @@ from tabulate import tabulate
 import os
 import re
 
-def report3(diction):
+def report3(diction,firstAndLastDict):
     flat = []
 
     for name, activities in diction.items():
@@ -50,7 +50,22 @@ def report3(diction):
     output = tabulate(df, headers='keys', tablefmt='grid', showindex=True)
     print(f'Report 3 Generated and Saved: {output}')
     with open("PhaseThreeReport3.txt", "w") as file:
+        file.write("Report 3 Generated.\n")
+        file.write("CS 4500\n")
+        file.write(f"{firstAndLastDict}\n")
+        file.write("Report contains Minutes spent per activity code per person in cs4500.")
+        file.write("Group B")
+        file.write("All members: Rohan Keenoy, Adrian Harter, Swati Shah, Josh brown, Andy Mai, Josiah Lyn")
         file.write(output)
+    print("Report 3 Generated.")
+    print("CS 4500")
+    print(f"{firstAndLastDict}")
+    print("Report contains Minutes spent per activity code per person in cs4500.")
+    print("Group B")
+    print("All members: Rohan Keenoy, Adrian Harter, Swati Shah, Josh Brown, Andy Mai, Josiah Lyn")
+
+    print(output)
+    
 
 
 def returnDf(file):
@@ -106,7 +121,7 @@ def mapNamesToDictionaries(diction, names):
         masterDiction[name] = dictionary 
     return masterDiction
 
-def report3Main():
+def report3Main(firstAndLastDict):
     #need to modify this to take in an array of csv files
     # but for now...
     csvFiles = []
@@ -125,7 +140,7 @@ def report3Main():
             dictionaries.append(dict)
     masterDictionary = mapNamesToDictionaries(dictionaries, names)
     #print(masterDictionary)
-    report3(masterDictionary)
+    report3(masterDictionary,firstAndLastDict)
     #validDf = returnDf()
     #dict = processDf(validDf)
     #report2(dict)
