@@ -1,1 +1,4 @@
-File HarterAdrianLog.csv: check for 4th column, activity code, failed on line 18 . 
+FILE HarterAdrianLog.csv: SUCCESSFUL - Is a valid file. . 
+********WARNING****** FILE KeenoyRohanLog.csv: time elapsed exceeds 4 hours on line 56. Scan was continued for other checks . 
+********WARNING****** FILE KeenoyRohanLog.csv: time elapsed exceeds 4 hours on line 63. Scan was continued for other checks . 
+FILE KeenoyRohanLog.csv: SUCCESSFUL - Is a valid file. . 

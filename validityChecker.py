@@ -29,8 +29,6 @@ References:
     2.) General Pandas referencing on documentation site: https://pandas.pydata.org/docs/getting_started/index.html
     
 """
-
-
 import os
 import pandas as pd
 import re
@@ -48,6 +46,9 @@ class programA:
         self.currentFile = ""
         self.currentLine = 3
         self.isValidToContinue = 0
+        self.names =[]
+        self.numOfIndvFiles = 0
+        self.firstAndLast = {}
         #self.checkFailed = 0
     
         self.classDriver()
@@ -109,7 +110,8 @@ class programA:
     #activity code checking
     def checkActivityCode(self, activityCode):
         validCodes = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D"]
-        if activityCode in validCodes:
+        if str(activityCode) in validCodes:
+            #print("Activity code valid")
             return 0
         else:
             return 1
@@ -124,6 +126,24 @@ class programA:
             return 1
         else:
             return 0
+    #name check for phase III    
+    def checkNames(self):
+        for file in self.listOfDirectoryFiles:
+            df = pd.read_csv(file,header = None)
+            #last name check
+            lastName = df.iloc[0,0]
+            #first name check
+            firstName = df.iloc[0,1]
+            if lastName not in self.firstAndLast:
+                self.firstAndLast[lastName] = firstName
+                print(f"LASTNAME: {lastName} FIRSTNAME: {firstName} LOADED into program")
+            else:
+                input(f"!!! Last name had been previously loaded into program. Name {lastName} loaded into dictionary previously. press enter to exit. . .")
+                return 1
+        return 0
+    #this is used in phase III master for the other files to retrieve first and last names.
+    def getNames(self):
+        return self.firstAndLast    
                  
     #base check for fromat, this is the "main loop" basically if something fails, a flag is set and it breaks the flow 
     def openFilesAndCheck(self):
@@ -234,10 +254,18 @@ class programA:
                 count +=1
                 self.listOfDirectoryFiles.append(file)
         print(f"LENGTH {len(self.listOfDirectoryFiles)}")
-        if len(self.listOfDirectoryFiles) <= 0:
+        
+        boolNameCheck = self.checkNames()
+        if boolNameCheck > 0:
+            input(f"There are more than 10 individuals in the directory files. Name check failed with {boolNameCheck}\nPress Enter to exit . . .")
+            exit(1)
+        if len(self.listOfDirectoryFiles) <= 1:
             #print("There are no valid files matching pattern: X (any capital letter) + [lL][oO][gG]\.[cC][sS][vV] \n EXITING.......")
             #had to put this in so when an executable is generated it doesn't quit extremely fast
-            input("No files found fitting the specification. Press enter to end program. . .")
+            input("No files found fitting the specification. Less than one file Press enter to end program. . .")
+            exit(1)
+        if len(self.listOfDirectoryFiles) > 9:
+            input("More than 10 individuals found in log files. Press enter to exit. . .")
             exit(1)
         print(f"Total valid file names found {count}\n With more than one file found, opening a new file called ValidityChecks.txt")
         if len(self.listOfDirectoryFiles)> 0:
