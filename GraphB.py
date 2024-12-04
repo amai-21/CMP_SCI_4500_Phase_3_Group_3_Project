@@ -53,7 +53,7 @@ def report3(diction):
     plt.colorbar(axImg)
     plt.xticks(ticks=range(len(df.columns)), labels=df.columns)
     plt.yticks(ticks=range(len(df.index)), labels=df.index)
-    plt.title("Report 3 - Activity by Name heatmap")
+    plt.title("Report 3 (GRAPH B) - Activity by Name heatmap")
     plt.xlabel("Activity Code")
     plt.ylabel("Name")
     plt.savefig("graphB_Report3")

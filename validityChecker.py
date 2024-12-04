@@ -7,7 +7,7 @@ HOW TO RUN: Navigate to where the python project and execute as python {projectn
     So you can either run the script or click on the executable. It was produced with a library called pyinstaller and ran with this command:
      python c:.users.rohan.appdata.local.packages.pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0.localcache.local-packages.python312.site-packages.pyinstaller. --onefile {projectA}.py
     Where the periods are forward slashes. (unicode parsing problem if leaving path in multi line comment)
-Authors: Rohan Keenoy, Justin Macapanpan (from phase II)
+Authors: Rohan Keenoy
 
 Date: 10/24/2024
 

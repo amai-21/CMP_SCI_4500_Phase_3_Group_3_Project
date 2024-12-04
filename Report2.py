@@ -47,7 +47,7 @@ def report2(diction):
     newDf = newDf.sort_values(by="ActivityCode")
     print(f'Report 2 Generated and Saved to File:\n{tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)}\n')
     output = tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)
-    with open("Report2.txt", "w") as file:
+    with open("PhaseThreeReport2.txt", "w") as file:
         file.write(output)
 
 #reads a CSV as a dataframe
