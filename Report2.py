@@ -30,13 +30,18 @@ References:
     
 """
 
+
+import pandas as pd
+from datetime import datetime
+from tabulate import tabulate
+import os
 import pandas as pd
 from datetime import datetime
 from tabulate import tabulate
 import os
 import re
 
-# Generates the report with additional header details
+#generates the report
 def report2(diction):
     # Convert the dictionary into a DataFrame
     listOfItems = list(diction.items())
@@ -46,7 +51,7 @@ def report2(diction):
     # Add header details
     title = "CS 4500 Development Team Activity Report"
     class_id = "Class ID: CS 4500"
-    team_members = ["Adrian Harter", "John Doe", "Jane Smith", "Alice Johnson"]  # Replace with actual names
+    team_members = ["Adrian Harter", "Rohan Keenoy", "Andy Mai", "Swati Sah", "Josiah Lynn", "Josh Brown"]  
     description = (
         "This report contains details about the activities performed by the CS 4500 development "
         "team. It highlights the total time spent on each activity code."
@@ -70,36 +75,29 @@ def report2(diction):
     print(f"Report 2 Generated and Saved to File:\n{report_content}\n")
 
     # Save the report to a text file
-    with open("PhaseThreeReport2.txt", "w") as file:
+    with open("PhaseThreeReport4.txt", "w") as file:
         file.write(report_content)
 
-
-# Reads a CSV as a DataFrame
+#reads a CSV as a dataframe
 def returnDf(filepath):
     data = pd.read_csv(filepath, header=None, na_filter=False)
-    return data
+    df = pd.DataFrame(data)
+    return df
 
-
-# Processes the time
+#processes the time
 def processTime(df):
     startMinutes = df.iloc[2:, 1].tolist()
     endMinutes = df.iloc[2:, 2].tolist()
-
-    # Convert times to datetime objects
     startTimes = [datetime.strptime(time, '%H:%M') for time in startMinutes]
     endTimes = [datetime.strptime(time, '%H:%M') for time in endMinutes]
-
-    # Calculate time differences
     timeDifference = [(end - start).total_seconds() / 60 for start, end in zip(startTimes, endTimes)]
     return timeDifference
 
-
-# Returns a dictionary after processing the DataFrame
+#returns a dictionary after processing the dataframe
 def processDf(df):
     diction = {}
     activityCodeColumn = df.iloc[:, 4][df.iloc[:, 4] != ""].tolist()
     minutesSpendPerColumn = processTime(df)
-
     for key in range(len(activityCodeColumn)):
         ac = activityCodeColumn[key]
         minutes = minutesSpendPerColumn[key]
@@ -107,38 +105,35 @@ def processDf(df):
             diction[ac] = minutes
         else:
             diction[ac] += minutes
-
     return diction
 
 
-# Main driver
+#main driver
 def report2Main():
     csvFiles = []
+    dfs = []
+    dictionaries = []
+    names = []
     combined_dict = {}
-
-    # Regex to identify valid files
+    
     regPat = r"^[A-Za-z]+[lL][oO][gG]\.[cC][sS][vV]$"
 
-    # Process files
     for file in os.listdir():
         if re.match(regPat, file):
             print(f"Processing file: {file}")
+            csvFiles.append(file)
             validDf = returnDf(file)
+            dfs.append(validDf)
             dict = processDf(validDf)
-
-            # Merge dictionaries
+            dictionaries.append(dict)
             for key, value in dict.items():
                 if key not in combined_dict:
                     combined_dict[key] = value
                 else:
                     combined_dict[key] += value
 
-    # Generate the report
     report2(combined_dict)
 
-
-if __name__ == '__main__':
-    report2Main()
 
 
 
