@@ -1,4 +1,4 @@
-"""Author of this program: Andy Mai"""
+"""Author of this program: Andy Mai, Rohan Keenoy"""
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -15,13 +15,11 @@ def process_files_and_aggregate_by_date():
         if re.match(regPat, file):
             try:
                 df = pd.read_csv(file, header=None, na_filter=False)
+                dates = df.iloc[2:, 0].tolist() 
+                start_times = df.iloc[2:, 1].tolist()  
+                end_times = df.iloc[2:, 2].tolist()  
 
-                #Extract date and time data
-                dates = df.iloc[2:, 0].toList()
-                start_times = df.iloc[2:, 1].toList()
-                end_times = df.iloc[2:, 2].toList()
-
-                #Calculate minutes logged for each row
+                # Calculate minutes logged for each row
                 for date, start, end in zip(dates, start_times, end_times):
                     try:
                         start_dt = datetime.strptime(start, '%H:%M')
@@ -38,7 +36,7 @@ def process_files_and_aggregate_by_date():
             except Exception as e:
                 print(f"Error reading file {file}: {e}")
 
-        return date_totals
+    return date_totals  
     
 def plot_graph_c(date_totals):
     """Plots a bar graph for Graph C with dates on the X-axis and minutes on the Y-axis."""
@@ -59,7 +57,7 @@ def plot_graph_c(date_totals):
 
     # Save the graph as a file and display it
     plt.savefig("GraphC_TotalMinutesPerDay.png")
-    input("Graph C generated and saved as GraphC_TotalMinutesPerDay.png. Press Enter to view the graph.")
+    #input("Graph C generated and saved as GraphC_TotalMinutesPerDay.png. Press Enter to view the graph.")
     plt.show()
 
 
@@ -68,13 +66,13 @@ def generate_graph_c_main():
 
     # Step 1: Aggregate data by dfate:
     date_totals = process_files_and_aggregate_by_date()
-
+    #print(date_totals)
     # Step 2: Plot the graph if data is available
     if date_totals:
         plot_graph_c(date_totals)
     else:
         print("No valid data to generate Graph C.")
 
-if __name__ == "__main__":
-   generate_graph_c_main()
+'''if __name__ == "__main__":
+   generate_graph_c_main()'''
         

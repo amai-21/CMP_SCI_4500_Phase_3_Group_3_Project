@@ -57,7 +57,7 @@ def report3(diction):
     plt.xlabel("Activity Code")
     plt.ylabel("Name")
     plt.savefig("graphB_Report3")
-    input("Press enter and the graph will display in a seperate window. To continue window must be exited.")
+    input("Press enter and the graph B will display in a seperate window. To continue window must be exited.")
     plt.show()
     
         
