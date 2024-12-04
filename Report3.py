@@ -48,7 +48,7 @@ def report3(diction,firstAndLastDict):
     df = df.pivot(index='Name', columns='Activity Code', values='Amount')
     df = df.fillna(0)
     output = tabulate(df, headers='keys', tablefmt='grid', showindex=True)
-    print(f'Report 3 Generated and Saved: {output}')
+    #print(f'Report 3 Generated and Saved: {output}')
     with open("PhaseThreeReport3.txt", "w") as file:
         file.write("Report 3 Generated.\n")
         file.write("CS 4500\n")

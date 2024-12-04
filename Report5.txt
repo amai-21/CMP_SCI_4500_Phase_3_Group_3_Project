@@ -1,2 +1,28 @@
 Report 5: Team Meetings
 
+
+Report 5 generated and saved as 'PhaseThreeReport5.txt'.
+Report 5 Generated.
+CS 4500
+Report contains information for overlapping meetings.
+Report contains overlapping members and times in CS4500.
+Group B
+All members: Rohan Keenoy, Adrian Harter, Swati Shah, Josh Brown, Andy Mai, Josiah Lyn
+Date: 9/6/2024
+Start Time: 19:00
+End Time: 19:15
+Members: Harter Adrian , Keenoy Rohan 
+Total Overlap Minutes: 15.00
+----------------------------------------
+Date: 10/13/2024
+Start Time: 11:00
+End Time: 11:43
+Members: Harter Adrian , Keenoy Rohan 
+Total Overlap Minutes: 43.00
+----------------------------------------
+Date: 10/17/2024
+Start Time: 20:00
+End Time: 20:15
+Members: Keenoy Rohan 
+Total Overlap Minutes: 15.00
+----------------------------------------

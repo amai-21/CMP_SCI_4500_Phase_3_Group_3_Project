@@ -280,7 +280,7 @@ class programA:
         print(self.introMessage)
         input("Press enter key to continue....")
         self.fileChecks()
-        input(f"Thank you for using Program A. Validity check logs are in file {self.fileName}. \n Press enter to Generate Reports.")
+        input(f"Thank you for checking validity. Validity check logs are in file {self.fileName}. \n Press enter to Generate Reports.")
         
             
 

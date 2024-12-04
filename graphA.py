@@ -91,6 +91,7 @@ def graph_df(df):
     plt.rcParams["figure.figsize"] = (12, 10)
     df.plot.barh(x="Name", y="Total Time Logged (Minutes)", title="Graph A: Total Minutes Worked By Member", color="red")
     plt.xlim(0, (temp_df.max() + 500))
+    plt.xlabel("Total Minutes Worked", fontsize = 12)
     plt.gca().set_xticks([0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000])
     plt.show()
 
