@@ -42,13 +42,40 @@ import re
 
 #generates the report
 def report2(diction):
+    # Convert the dictionary into a DataFrame
     listOfItems = list(diction.items())
     newDf = pd.DataFrame(listOfItems, columns=['ActivityCode', 'MinutesSpent'])
     newDf = newDf.sort_values(by="ActivityCode")
-    print(f'Report 2 Generated and Saved to File:\n{tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)}\n')
-    output = tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)
-    with open("PhaseThreeReport2.txt", "w") as file:
-        file.write(output)
+
+    # Add header details
+    title = "CS 4500 Development Team Activity Report"
+    class_id = "Class ID: CS 4500"
+    team_members = ["Adrian Harter", "Rohan Keenoy", "Andy Mai", "Swati Sah", "Josiah Lynn", "Josh Brown"]  
+    description = (
+        "This report contains details about the activities performed by the CS 4500 development "
+        "team. It highlights the total time spent on each activity code."
+    )
+
+    # Prepare the header
+    header = (
+        f"{title}\n"
+        f"{class_id}\n"
+        f"Team Members: {', '.join(team_members)}\n"
+        f"Description: {description}\n\n"
+    )
+
+    # Prepare the body of the report
+    body = tabulate(newDf, headers="keys", tablefmt="grid", showindex=False)
+
+    # Combine header and body
+    report_content = header + body
+
+    # Print the report to the console
+    print(f"Report 2 Generated and Saved to File:\n{report_content}\n")
+
+    # Save the report to a text file
+    with open("PhaseThreeReport4.txt", "w") as file:
+        file.write(report_content)
 
 #reads a CSV as a dataframe
 def returnDf(filepath):
