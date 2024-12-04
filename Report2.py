@@ -34,13 +34,9 @@ import pandas as pd
 from datetime import datetime
 from tabulate import tabulate
 import os
-import pandas as pd
-from datetime import datetime
-from tabulate import tabulate
-import os
 import re
 
-#generates the report
+# Generates the report with additional header details
 def report2(diction):
     # Convert the dictionary into a DataFrame
     listOfItems = list(diction.items())
@@ -50,7 +46,7 @@ def report2(diction):
     # Add header details
     title = "CS 4500 Development Team Activity Report"
     class_id = "Class ID: CS 4500"
-    team_members = ["Adrian Harter", "Rohan Keenoy", "Andy Mai", "Swati Sah", "Josiah Lynn", "Josh Brown"]  
+    team_members = ["Adrian Harter", "John Doe", "Jane Smith", "Alice Johnson"]  # Replace with actual names
     description = (
         "This report contains details about the activities performed by the CS 4500 development "
         "team. It highlights the total time spent on each activity code."
@@ -77,13 +73,13 @@ def report2(diction):
     with open("PhaseThreeReport4.txt", "w") as file:
         file.write(report_content)
 
-#reads a CSV as a dataframe
+# Reads a CSV as a DataFrame
 def returnDf(filepath):
     data = pd.read_csv(filepath, header=None, na_filter=False)
     df = pd.DataFrame(data)
     return df
 
-#processes the time
+# Processes the time
 def processTime(df):
     startMinutes = df.iloc[2:, 1].tolist()
     endMinutes = df.iloc[2:, 2].tolist()
@@ -92,7 +88,7 @@ def processTime(df):
     timeDifference = [(end - start).total_seconds() / 60 for start, end in zip(startTimes, endTimes)]
     return timeDifference
 
-#returns a dictionary after processing the dataframe
+# Returns a dictionary after processing the DataFrame
 def processDf(df):
     diction = {}
     activityCodeColumn = df.iloc[:, 4][df.iloc[:, 4] != ""].tolist()
@@ -106,8 +102,7 @@ def processDf(df):
             diction[ac] += minutes
     return diction
 
-
-#main driver
+# Main driver
 def report2Main():
     csvFiles = []
     dfs = []
@@ -132,6 +127,5 @@ def report2Main():
                     combined_dict[key] += value
 
     report2(combined_dict)
-
 
 
