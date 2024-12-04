@@ -8,7 +8,7 @@ HOW TO RUN: Navigate to where the python project and execute as python {projectn
      python c:.users.rohan.appdata.local.packages.pythonsoftwarefoundation.python.3.12_qbz5n2kfra8p0.localcache.local-packages.python312.site-packages.pyinstaller. --onefile {projectA}.py
     Where the periods are forward slashes. (unicode parsing problem if leaving path in multi line comment)
 Authors: Josh Brown, Rohan Keenoy
-
+lead program: Josh Brown
 Date: 10/24/2024
 
 DATA STRUCTURES: A pandas dataframe is commonly used in scientific applications, it can be thought of as a N-d array,can have headers, and is structured as the csv is structured. 
